@@ -2,8 +2,6 @@ package com.microservice.account.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,9 +18,7 @@ public class Manager {
 	
 	@Column(nullable = false)
 	private String Name;
-	
-	@Enumerated(EnumType.STRING)
-	private RoleType role;
+
 	
 	@OneToOne
 	private Userinfo userinfo;
@@ -43,14 +39,6 @@ public class Manager {
 		Name = name;
 	}
 
-	public RoleType getRole() {
-		return role;
-	}
-
-	public void setRole(RoleType role) {
-		this.role = role;
-	}
-
 	public Userinfo getUserinfo() {
 		return userinfo;
 	}
@@ -63,7 +51,6 @@ public class Manager {
 		super();
 		this.id = id;
 		Name = name;
-		this.role = role;
 		this.userinfo = userinfo;
 	}
 

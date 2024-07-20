@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,6 +36,7 @@ public class Userinfo implements UserDetails {
 	@Column(nullable = false, length = 512)
 	private String password;
 	
+	@Enumerated(EnumType.STRING)
 	private RoleType role;
 	
 	
