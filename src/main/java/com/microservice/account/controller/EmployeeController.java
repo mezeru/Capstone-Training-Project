@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservice.account.enums.RoleType;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Userinfo;
 import com.microservice.account.service.EmployeeService;
@@ -27,7 +28,21 @@ public class EmployeeController {
 	@PostMapping("/api/Employee/add")
 	public ResponseEntity<?> addEmployee(@RequestBody Employee employee) {
 		
-		return ResponseEntity.ok(employee);
+		// Check in Manager Exists
+		
+		
+		Userinfo userinfo = employee.getUserinfo();
+		
+		String rawPass = userinfo.getPassword();
+		String encryptedPass = passwordEncoder.encode(rawPass);
+		userinfo.setPassword(encryptedPass);
+		userinfo.setRole(RoleType.EMPLOYEE);
+		userinfoService.addUserinfo(userinfo);
+		
+		employee.setUserinfo(userinfo);
+		employee = employeeService.addEmployee(employee);
+		
+		return ResponseEntity.ok().body(employee);
 		
 		
 	}

@@ -37,8 +37,8 @@ public class HRController {
 		
 		userinfoService.addUserinfo(userinfo);
 		hr.setUserinfo(userinfo);
-		HR savedHR = hrService.addHr(hr);
-		return ResponseEntity.ok().body(savedHR);
+		hr = hrService.addHr(hr);
+		return ResponseEntity.ok().body(hr);
 		
 	}
 
