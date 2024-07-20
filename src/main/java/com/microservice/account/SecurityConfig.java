@@ -32,6 +32,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
+            	.antMatchers(HttpMethod.PUT,"/api/HR/updateManager/{employeeId}/{managerId}").hasAuthority("HR")
                 .anyRequest().denyAll()
             )
             .httpBasic(Customizer.withDefaults());
