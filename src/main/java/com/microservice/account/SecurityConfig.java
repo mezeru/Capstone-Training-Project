@@ -3,6 +3,7 @@ package com.microservice.account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -29,7 +30,9 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer:: disable)
             .authorizeHttpRequests(authorize -> authorize
-                .anyRequest().permitAll()
+            	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
+            	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
+                .anyRequest().denyAll()
             )
             .httpBasic(Customizer.withDefaults());
         return http.build();
