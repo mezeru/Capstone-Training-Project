@@ -18,6 +18,44 @@ public class EmployeeItems {
 	
 	@ManyToOne
 	private Items item;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Items getItem() {
+		return item;
+	}
+
+	public void setItem(Items item) {
+		this.item = item;
+	}
+
+	public EmployeeItems(int id, Employee employee, Items item) {
+		super();
+		this.id = id;
+		this.employee = employee;
+		this.item = item;
+	}
+
+	public EmployeeItems() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 
 }

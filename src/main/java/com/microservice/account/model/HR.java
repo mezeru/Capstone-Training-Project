@@ -26,5 +26,52 @@ public class HR {
 	
 	@OneToOne
 	private Userinfo userinfo;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public RoleType getRole() {
+		return role;
+	}
+
+	public void setRole(RoleType role) {
+		this.role = role;
+	}
+
+	public Userinfo getUserinfo() {
+		return userinfo;
+	}
+
+	public void setUserinfo(Userinfo userinfo) {
+		this.userinfo = userinfo;
+	}
+
+	public HR(int id, String name, RoleType role, Userinfo userinfo) {
+		super();
+		this.id = id;
+		Name = name;
+		this.role = role;
+		this.userinfo = userinfo;
+	}
+
+	public HR() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 }
