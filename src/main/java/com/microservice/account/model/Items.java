@@ -18,6 +18,9 @@ public class Items {
 	
 	@Column(nullable = false)
 	private int points;
+	
+	@Column(nullable = false)
+	private String description;
 
 	public int getId() {
 		return id;
@@ -42,12 +45,25 @@ public class Items {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+	
+	
+	
+	public String getDescription() {
+		return description;
+	}
 
-	public Items(int id, String name, int points) {
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+
+	public Items(int id, String name, int points, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.points = points;
+		this.description = description;
 	}
 
 	public Items() {
