@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class PointsReward {
@@ -21,7 +20,12 @@ public class PointsReward {
 	
 	@ManyToOne
 	private Manager manager;
+	
+	private String review;
 
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -32,6 +36,17 @@ public class PointsReward {
 
 	public int getPoints() {
 		return points;
+	}
+	
+
+	public String getReview() {
+		return review;
+	}
+	
+	
+
+	public void setReview(String review) {
+		this.review = review;
 	}
 
 	public void setPoints(int points) {
@@ -54,12 +69,15 @@ public class PointsReward {
 		this.manager = manager;
 	}
 
-	public PointsReward(int id, int points, Employee employee, Manager manager) {
+	
+
+	public PointsReward(int id, int points, Employee employee, Manager manager, String review) {
 		super();
 		this.id = id;
 		this.points = points;
 		this.employee = employee;
 		this.manager = manager;
+		this.review = review;
 	}
 
 	public PointsReward() {
