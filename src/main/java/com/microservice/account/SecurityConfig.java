@@ -35,7 +35,8 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.PUT,"/api/HR/updateManager/{employeeId}/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Items/add").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Manager/empSuper/{managerID}").hasAuthority("MANAGER")
-            	.antMatchers(HttpMethod.POST,"/api/Manager/addPoints/{managerId}/{employeeId}").hasAuthority("MANAGER")
+            	.antMatchers(HttpMethod.POST,"/api/addPoints/{managerId}/{employeeId}").hasAuthority("MANAGER")
+            	.antMatchers(HttpMethod.GET,"/api/Items/getAll").hasAuthority("HR")
                 .anyRequest().denyAll()
             )
             .httpBasic(Customizer.withDefaults());

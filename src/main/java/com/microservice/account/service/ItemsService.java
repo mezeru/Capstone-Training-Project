@@ -1,5 +1,7 @@
 package com.microservice.account.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class ItemsService {
 		
 		return itemsRepository.save(item);	
 		
+		
+	}
+
+	public List<Items> getAllItems() {
+		
+		return itemsRepository.findAll();		
 		
 	}
 
