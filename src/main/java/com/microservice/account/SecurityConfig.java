@@ -30,7 +30,6 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer:: disable)
             .authorizeHttpRequests(authorize -> authorize
-            	.antMatchers(HttpMethod.GET,"/api/Testcors").permitAll()
             	.antMatchers(HttpMethod.GET,"/api/login").authenticated()
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
@@ -41,7 +40,7 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.GET,"/api/Items/getAll").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Employee/redeemItem/{employeeId}/{itemId}").hasAuthority("EMPLOYEE")
             	.antMatchers(HttpMethod.GET,"/api/Employee/getItems/{employeeId}").hasAuthority("EMPLOYEE")
-                .anyRequest().denyAll()
+                .anyRequest().permitAll()
             )
             .httpBasic(Customizer.withDefaults());
         return http.build();
