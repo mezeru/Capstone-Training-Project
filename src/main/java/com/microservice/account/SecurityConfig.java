@@ -30,6 +30,7 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer:: disable)
             .authorizeHttpRequests(authorize -> authorize
+            	.antMatchers(HttpMethod.GET,"/api/login").authenticated()
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
             	.antMatchers(HttpMethod.PUT,"/api/HR/updateManager/{employeeId}/{managerId}").hasAuthority("HR")
