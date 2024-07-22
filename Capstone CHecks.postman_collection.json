@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "0c6b0953-2e2c-4479-9218-c7cfcb0a3619",
+		"name": "Capstone CHecks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37028436"
+	},
+	"item": [
+		{
+			"name": "Add Manager",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Khoi",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Khoi",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Connor\",\r\n    \"userinfo\":{\r\n        \"username\":\"Connor\",\r\n        \"password\":\"Connor\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/Manager/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Manager",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Harry",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Harry",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Jane\",\r\n    \"salary\": 23432,\r\n    \"userinfo\":{\r\n        \"username\":\"Jane\",\r\n        \"password\":\"Jane\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/Employee/add/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Employee",
+						"add",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add HR",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Khoi",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Khoi",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Connor\",\r\n    \"userinfo\":{\r\n        \"username\":\"Connor\",\r\n        \"password\":\"Connor\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/HR/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"HR",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Manager",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Harry",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Harry",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/HR/updateManager/16/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"HR",
+						"updateManager",
+						"16",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Item",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Harry",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Harry",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"1 Day PTO\",\r\n    \"description\":\"+1 Holiday on any day of the year \",\r\n    \"points\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/Items/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Items",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees Managed by a manager ",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Connor",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Connor",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/Manager/empSuper/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Manager",
+						"empSuper",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Points by Manager",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Connor",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Connor",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"points\":1000,\r\n    \"review\":\"Fired from Job\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/addPoints/14/19",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"addPoints",
+						"14",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Items",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Harry",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Harry",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/Items/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Items",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee Redeem Item",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Jane",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Jane",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/Employee/redeemItem/19/23",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Employee",
+						"redeemItem",
+						"19",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Items Which Have been redeemed",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Jane",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Jane",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/Employee/getItems/19",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"Employee",
+						"getItems",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Check",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Jane123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Jane",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
