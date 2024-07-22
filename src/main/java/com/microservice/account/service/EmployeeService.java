@@ -4,14 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.microservice.account.exceptions.ResourceNotFound;
 import com.microservice.account.model.Employee;
+import com.microservice.account.model.EmployeeItems;
+import com.microservice.account.model.Items;
 import com.microservice.account.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
+	
+	@Autowired
+	EmployeeItemsService employeeItemsService;
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -38,6 +44,27 @@ public class EmployeeService {
 		List<Employee> employees = employeeRepository.findByManagerId(managerId);
 		
 		return employees;
+		
+	}
+
+	public ResponseEntity<?> redeemItem(Employee employee, Items item) {
+		
+		if(employee.getPoints() < item.getPoints()) {
+			return ResponseEntity.badRequest().body("Insufficient Points");
+		}
+		
+		EmployeeItems empItem = new EmployeeItems();
+		empItem.setEmployee(employee);
+		empItem.setItem(item);
+		
+		employee.setPoints(employee.getPoints() - item.getPoints());
+		
+		employeeRepository.save(employee);
+		
+		empItem = employeeItemsService.addRedemption(empItem);
+		
+		return ResponseEntity.ok(empItem);
+			
 		
 	}
 	
