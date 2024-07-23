@@ -6,4 +6,6 @@ import com.microservice.account.model.HR;
 
 public interface HRRepository extends JpaRepository<HR, Integer> {
 
+	HR getByUserinfoId(int userinfoId);
+
 }

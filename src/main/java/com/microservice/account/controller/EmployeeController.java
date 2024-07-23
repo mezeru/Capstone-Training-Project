@@ -126,5 +126,16 @@ public class EmployeeController {
 		
 	}
 	
+	// Get Employee by userinfo
+	
+	@GetMapping("/api/Employee/getEmployeeUserID/{userinfoId}")
+	public ResponseEntity<?> getEmployeeByuserID(@PathVariable ("userinfoId") int userinfoId){
+		
+		Employee employee = employeeService.getEmployeeByUserID(userinfoId);
+		
+		return ResponseEntity.ok().body(employee);
+		
+	}
+	
 
 }

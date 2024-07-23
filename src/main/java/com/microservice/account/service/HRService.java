@@ -16,6 +16,12 @@ public class HRService {
 		return hrRepository.save(hr);
 		
 	}
+
+	public HR getHrByUserID(int userinfoId) {
+		
+		return hrRepository.getByUserinfoId(userinfoId);
+		
+	}
 	
 	
 	

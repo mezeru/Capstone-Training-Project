@@ -75,6 +75,12 @@ public class EmployeeService {
 		return list;
 		
 	}
+
+	public Employee getEmployeeByUserID(int userinfoId) {
+		
+		return employeeRepository.getByUserinfoId(userinfoId);
+		
+	}
 	
 	
 

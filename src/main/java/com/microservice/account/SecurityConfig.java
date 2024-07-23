@@ -32,6 +32,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
             	.antMatchers(HttpMethod.GET,"/api/login").authenticated()
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
+            	.antMatchers(HttpMethod.POST,"/api/HR/getHRUserID/{userinfoId}").hasAuthority("HR")
+            	.antMatchers(HttpMethod.GET,"/api/Employee/getEmployeeUserID/{userinfoID}").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Employee/getAll").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Manager/getAll").hasAuthority("HR")            	
@@ -39,7 +41,7 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.POST,"/api/Items/add").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Manager/empSuper/{managerID}").hasAuthority("MANAGER")
             	.antMatchers(HttpMethod.POST,"/api/addPoints/{managerId}/{employeeId}").hasAuthority("MANAGER")
-            	.antMatchers(HttpMethod.GET,"/api/Items/getAll").hasAuthority("HR")
+            	.antMatchers(HttpMethod.GET,"/api/Items/getAll").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Employee/redeemItem/{employeeId}/{itemId}").hasAuthority("EMPLOYEE")
             	.antMatchers(HttpMethod.GET,"/api/Employee/getItems/{employeeId}").hasAuthority("EMPLOYEE")
                 .anyRequest().permitAll()

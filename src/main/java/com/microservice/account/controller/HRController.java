@@ -3,6 +3,8 @@ package com.microservice.account.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +22,9 @@ import com.microservice.account.service.HRService;
 import com.microservice.account.service.ManagerService;
 import com.microservice.account.service.UserinfoService;
 
+
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class HRController {
 	
 	@Autowired
@@ -80,6 +84,16 @@ public class HRController {
 		
 		
 		
+		
+	}
+	
+	
+	@GetMapping("/api/HR/getHRUserID/{userinfoId}")
+	public ResponseEntity<?> getHrByuserID(@PathVariable ("userinfoId") int userinfoId){
+		
+		HR hr = hrService.getHrByUserID(userinfoId);
+		
+		return ResponseEntity.ok().body(hr);
 		
 	}
 
