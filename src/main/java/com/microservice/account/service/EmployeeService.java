@@ -67,6 +67,14 @@ public class EmployeeService {
 			
 		
 	}
+
+	public List<Employee> getAllEmployee() {
+		
+		List<Employee> list = employeeRepository.findAll();
+		
+		return list;
+		
+	}
 	
 	
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.microservice.account.service.ManagerService;
 import com.microservice.account.service.UserinfoService;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class ManagerController {
 	
 	
@@ -57,6 +59,15 @@ public class ManagerController {
 	public ResponseEntity<?> getEmployeesSupervised(@PathVariable int managerId){
 		
 		List<Employee> list = employeeService.getEmployeesUnderManager(managerId);
+		
+		return ResponseEntity.ok().body(list);
+		
+	}
+	
+	@GetMapping("/api/Manager/getAll")
+	public ResponseEntity<?> getAllManagers(){
+		
+		List<Manager> list = managerService.getAllManager();
 		
 		return ResponseEntity.ok().body(list);
 		
