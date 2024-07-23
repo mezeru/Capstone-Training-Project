@@ -13,7 +13,7 @@ import com.microservice.account.model.Manager;
 import com.microservice.account.model.PointsReward;
 import com.microservice.account.service.EmployeeService;
 import com.microservice.account.service.ManagerService;
-import com.microservice.account.service.PointsRewardService;
+import com.microservice.account.service.PointsRewardEService;
 
 @RestController
 public class PointsRewardController {
@@ -25,7 +25,7 @@ public class PointsRewardController {
 	private ManagerService managerService;
 	
 	@Autowired
-	private PointsRewardService pointsRewardService;
+	private PointsRewardEService pointsRewardService;
 	
 	
 	@PostMapping("/api/addPoints/{managerId}/{employeeId}")

@@ -7,7 +7,7 @@ import com.microservice.account.model.PointsReward;
 import com.microservice.account.repository.PointsRewardRepository;
 
 @Service
-public class PointsRewardService {
+public class PointsRewardEService {
 	
 	@Autowired
 	private PointsRewardRepository pointsRewardsRepository;
