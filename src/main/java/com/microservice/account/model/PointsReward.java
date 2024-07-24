@@ -1,10 +1,14 @@
 package com.microservice.account.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class PointsReward {
@@ -14,6 +18,9 @@ public class PointsReward {
 	private int id;
 	
 	private int points;
+	
+	@CreationTimestamp
+    private LocalDateTime timestamp;
 	
 	@ManyToOne
 	private Employee employee;
@@ -45,6 +52,14 @@ public class PointsReward {
 	
 	
 
+	public LocalDateTime getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
+	}
+
 	public void setReview(String review) {
 		this.review = review;
 	}
@@ -70,11 +85,14 @@ public class PointsReward {
 	}
 
 	
+	
 
-	public PointsReward(int id, int points, Employee employee, Manager manager, String review) {
+	public PointsReward(int id, int points, LocalDateTime timestamp, Employee employee, Manager manager,
+			String review) {
 		super();
 		this.id = id;
 		this.points = points;
+		this.timestamp = timestamp;
 		this.employee = employee;
 		this.manager = manager;
 		this.review = review;

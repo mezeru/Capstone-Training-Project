@@ -1,7 +1,11 @@
 package com.microservice.account.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +19,7 @@ import com.microservice.account.service.EmployeeService;
 import com.microservice.account.service.ManagerService;
 import com.microservice.account.service.PointsRewardEService;
 
+@CrossOrigin(origins = {"http://localhost:3000"})
 @RestController
 public class PointsRewardController {
 	
@@ -65,6 +70,16 @@ public class PointsRewardController {
 			
 			return ResponseEntity.ok().body(pointsRewarded);	
 			
+		
+	}
+	
+	@GetMapping("api/getHistory/Manager/{managerId}")
+	public ResponseEntity<?> getHistoryByManager(@PathVariable("managerId") int managerId){
+		
+		List<PointsReward> list = pointsRewardService.getHistoryByManager(managerId);
+		
+		
+		return ResponseEntity.ok().body(list);
 		
 	}
 

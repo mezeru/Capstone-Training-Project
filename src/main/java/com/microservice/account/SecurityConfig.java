@@ -43,6 +43,7 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.PUT,"/api/HR/updateManager/{employeeId}/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/Items/add").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Manager/empSuper/{managerID}").hasAuthority("MANAGER")
+            	.antMatchers(HttpMethod.GET,"api/getHistory/Manager/{managerId}").hasAuthority("MANAGER")
             	.antMatchers(HttpMethod.POST,"/api/addPoints/{managerId}/{employeeId}").hasAuthority("MANAGER")
             	.antMatchers(HttpMethod.GET,"/api/Items/getAll").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Employee/redeemItem/{employeeId}/{itemId}").hasAuthority("EMPLOYEE")
