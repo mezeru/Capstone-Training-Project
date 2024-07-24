@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.microservice.account.exceptions.ResourceNotFound;
+import com.microservice.account.model.Employee;
 import com.microservice.account.model.Manager;
 import com.microservice.account.repository.ManagerRepository;
 
@@ -42,6 +43,12 @@ public class ManagerService {
 		List<Manager> managers = managerRepository.findAll();
 		
 		return managers;
+		
+	}
+
+	public Manager getEmployeeByUserID(int userinfoId) {
+		
+		return managerRepository.getByUserinfoId(userinfoId);
 		
 	}
 

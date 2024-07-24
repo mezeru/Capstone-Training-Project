@@ -6,4 +6,6 @@ import com.microservice.account.model.Manager;
 
 public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
+	Manager getByUserinfoId(int userinfoId);
+
 }

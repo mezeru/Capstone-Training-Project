@@ -73,6 +73,15 @@ public class ManagerController {
 		
 	}
 	
+	@GetMapping("/api/Manager/getManagerUserID/{userinfoId}")
+	public ResponseEntity<?> getManagerByuserID(@PathVariable ("userinfoId") int userinfoId){
+		
+		Manager manager = managerService.getEmployeeByUserID(userinfoId);
+		
+		return ResponseEntity.ok().body(manager);
+		
+	}
+	
 	
 	
 	
