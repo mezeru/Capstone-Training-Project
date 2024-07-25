@@ -22,11 +22,12 @@ public class EmployeeItemsService {
 		
 	}
 
-	public List<?> getItemsbyEmployee(int employeeId) {
+	public List<EmployeeItems> getItemsbyEmployee(int employeeId) {
 		
 		
 		
 		return employeeItemsRepository.findItemsByEmployeeId(employeeId);
 	}
+
 
 }

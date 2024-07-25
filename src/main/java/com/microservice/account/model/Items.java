@@ -21,6 +21,8 @@ public class Items {
 	
 	@Column(nullable = false)
 	private String description;
+	
+	
 
 	public int getId() {
 		return id;

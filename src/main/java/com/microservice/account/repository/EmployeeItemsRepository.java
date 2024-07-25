@@ -11,7 +11,7 @@ import com.microservice.account.model.Items;
 
 public interface EmployeeItemsRepository extends JpaRepository<EmployeeItems, Integer>{
 
-	@Query("SELECT ei.item FROM EmployeeItems ei WHERE ei.employee.id = :employeeId")
-    List<Items> findItemsByEmployeeId(int employeeId);
+	@Query("SELECT ei FROM EmployeeItems ei WHERE ei.employee.id = :employeeId")
+    List<EmployeeItems> findItemsByEmployeeId(int employeeId);
 
 }

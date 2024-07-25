@@ -12,4 +12,6 @@ public interface PointsRewardRepository extends JpaRepository<PointsReward, Inte
 
 	List<PointsReward> getByManagerId(int managerId);
 
+	List<PointsReward> getByEmployeeId(int employeeId);
+
 }

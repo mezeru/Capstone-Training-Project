@@ -1,6 +1,8 @@
 package com.microservice.account.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,16 +19,22 @@ import com.microservice.account.exceptions.ResourceNotFound;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Items;
 import com.microservice.account.model.Manager;
+import com.microservice.account.model.PointsReward;
 import com.microservice.account.model.Userinfo;
 import com.microservice.account.service.EmployeeItemsService;
 import com.microservice.account.service.EmployeeService;
 import com.microservice.account.service.ItemsService;
 import com.microservice.account.service.ManagerService;
+import com.microservice.account.service.PointsHistoryService;
+import com.microservice.account.service.PointsRewardEService;
 import com.microservice.account.service.UserinfoService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
 public class EmployeeController {
+	
+	@Autowired
+	private PointsRewardEService pointsRewardService;
 	
 	@Autowired
 	private ItemsService itemsService;
@@ -45,6 +53,9 @@ public class EmployeeController {
 	
 	@Autowired
 	private EmployeeItemsService employeeItemsService;
+	
+	@Autowired
+	private PointsHistoryService pointsHistoryService;
 	
 	@PostMapping("/api/Employee/add/{managerId}")
 	public ResponseEntity<?> addEmployee(@RequestBody Employee employee, @PathVariable("managerId") int managerId) {
@@ -136,6 +147,20 @@ public class EmployeeController {
 		return ResponseEntity.ok().body(employee);
 		
 	}
+	
+	@GetMapping("/api/Employee/getPointsHistory/{employeeId}")
+	public ResponseEntity<?> getPointsHistory(@PathVariable("employeeId") int employeeId){
+		
+	
+		
+		List<?> list = pointsHistoryService.getPointsHistory(employeeId);
+		
+		
+	    return ResponseEntity.ok().body(list);
+		
+		
+	}
+
 	
 
 }
