@@ -64,6 +64,7 @@ public class HRService {
 					eDto.setId(emp.getId());
 					eDto.setName(emp.getName());
 					eDto.setSalary(emp.getSalary());
+					eDto.setJobtype(emp.getJobtype());
 					listEmployeeDto.add(eDto);
 				});
 				mDto.setEmployees(listEmployeeDto);

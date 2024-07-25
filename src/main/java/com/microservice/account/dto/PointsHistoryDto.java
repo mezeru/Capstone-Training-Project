@@ -15,27 +15,20 @@ public class PointsHistoryDto {
         this.managerName = managerName;
         this.points = points;
         this.timestamp = timestamp;
-        adjustPoints(); // Adjust points when creating the object
     }
 
     // Getters and setters
     public String getItemName() { return itemName; }
-    public void setItemName(String itemName) { this.itemName = itemName; adjustPoints(); }
+    public void setItemName(String itemName) { this.itemName = itemName;}
 
     public String getManagerName() { return managerName; }
     public void setManagerName(String managerName) { this.managerName = managerName; }
 
     public int getPoints() { return points; }
-    public void setPoints(int points) { this.points = points; adjustPoints(); }
+    public void setPoints(int points) { this.points = points; }
 
     public LocalDateTime getTimestamp() { return timestamp; }
     public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
 
-    // Adjust points if itemName is present
-    private void adjustPoints() {
-        if (this.itemName != null && !this.itemName.isEmpty()) {
-            this.points = -this.points;
-        }
-    }
     
 }
