@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.microservice.account.dto.CountDto;
 import com.microservice.account.dto.EmployeeDto;
 import com.microservice.account.dto.ManagerDto;
 import com.microservice.account.model.Employee;
@@ -71,6 +73,17 @@ public class HRService {
 				mDtoList.add(mDto);
 			});
 			return mDtoList;
+		
+	}
+
+	public ResponseEntity<?> getCount() {
+		
+		long employeeCount = employeeRepository.count();
+        long managerCount = managerRepository.count();
+
+        CountDto countsResponse = new CountDto(employeeCount, managerCount);
+        return ResponseEntity.ok(countsResponse);
+		
 		
 	}
 	

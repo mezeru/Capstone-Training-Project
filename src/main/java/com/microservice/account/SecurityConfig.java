@@ -36,6 +36,8 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.GET,"/api/Employee/getEmployeeUserID/{userinfoID}").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
             	
+            	.antMatchers(HttpMethod.GET,"/api/HR/Getcount").hasAuthority("HR")
+            	
             	.antMatchers(HttpMethod.POST,"/api/Employee/getPointsHistory/{employeeId}").hasAuthority("EMPLOYEE")
             	
             	

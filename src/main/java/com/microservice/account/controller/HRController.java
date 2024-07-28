@@ -105,5 +105,12 @@ public class HRController {
 		List<ManagerDto> dto = hrService.getAllManagerWithEmployee();
 		return dto; 
 	}
+	
+	@GetMapping("/api/HR/Getcount")
+	public ResponseEntity<?> getCount(){
+		
+		return hrService.getCount();
+		
+	}
 
 }
