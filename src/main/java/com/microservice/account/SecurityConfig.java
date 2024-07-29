@@ -30,6 +30,7 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer:: disable)
             .authorizeHttpRequests(authorize -> authorize
+            	
             	.antMatchers(HttpMethod.GET,"/api/login").authenticated()
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/search/{searchName}").hasAuthority("HR")
@@ -37,6 +38,7 @@ public class SecurityConfig {
             	.antMatchers(HttpMethod.GET,"/api/Employee/getEmployeeUserID/{userinfoID}").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
             	
+            	.antMatchers(HttpMethod.POST,"/api/HR/add").permitAll()
             	.antMatchers(HttpMethod.GET,"/api/HR/Getcount").hasAuthority("HR")
             	
             	.antMatchers(HttpMethod.POST,"/api/Employee/getPointsHistory/{employeeId}").hasAuthority("EMPLOYEE")

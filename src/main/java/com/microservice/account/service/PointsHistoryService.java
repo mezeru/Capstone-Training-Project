@@ -30,6 +30,7 @@ public class PointsHistoryService {
             dto.setItemName(reward.getItem().getName());
             dto.setPoints(reward.getItem().getPoints());
             dto.setTimestamp(reward.getTimestamp());
+            dto.setDesc(reward.getItem().getDescription());
             return dto;
         }).collect(Collectors.toList());
 		 
@@ -38,6 +39,7 @@ public class PointsHistoryService {
 	            dto.setManagerName(reward.getManager().getName());
 	            dto.setPoints(reward.getPoints());
 	            dto.setTimestamp(reward.getTimestamp());
+	            dto.setDesc(reward.getReview());
 	            return dto;
 	        }).collect(Collectors.toList());
 		 
