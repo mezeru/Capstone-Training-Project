@@ -81,6 +81,12 @@ public class EmployeeService {
 		return employeeRepository.getByUserinfoId(userinfoId);
 		
 	}
+
+	public List<Employee> getEmployeeByName(String searchName) {
+		
+		return employeeRepository.getEmployeeByName(searchName);
+		
+	}
 	
 	
 

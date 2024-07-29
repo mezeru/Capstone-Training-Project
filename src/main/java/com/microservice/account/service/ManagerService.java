@@ -52,4 +52,9 @@ public class ManagerService {
 		
 	}
 
+	public List<Manager> getManagerByName(String searchName) {
+		// TODO Auto-generated method stub
+		return managerRepository.getManagerByName(searchName);
+	}
+
 }

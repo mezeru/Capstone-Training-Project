@@ -32,6 +32,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
             	.antMatchers(HttpMethod.GET,"/api/login").authenticated()
             	.antMatchers(HttpMethod.POST,"/api/Employee/add/{managerId}").hasAuthority("HR")
+            	.antMatchers(HttpMethod.GET,"/api/search/{searchName}").hasAuthority("HR")
             	.antMatchers(HttpMethod.POST,"/api/HR/getHRUserID/{userinfoId}").hasAuthority("HR")
             	.antMatchers(HttpMethod.GET,"/api/Employee/getEmployeeUserID/{userinfoID}").permitAll()
             	.antMatchers(HttpMethod.POST,"/api/Manager/add").hasAuthority("HR")
