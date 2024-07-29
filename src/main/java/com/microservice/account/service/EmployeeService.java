@@ -38,6 +38,7 @@ public class EmployeeService {
 		
 		return optional.get();
 	}
+	
 
 	public List<Employee> getEmployeesUnderManager(int managerId) {
 		
@@ -85,6 +86,25 @@ public class EmployeeService {
 	public List<Employee> getEmployeeByName(String searchName) {
 		
 		return employeeRepository.getEmployeeByName(searchName);
+		
+	}
+
+	public Employee updateEmployee(Employee employee, int id) {
+		
+		Employee emp = null;
+		
+		try {
+			emp = findEmployeeById(id);
+		} catch (ResourceNotFound e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		emp.setJobtype(employee.getJobtype());
+		emp.setName(employee.getName());
+		emp.setPoints(employee.getPoints());
+		
+		return employeeRepository.save(emp);
 		
 	}
 	

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -127,6 +128,8 @@ public class EmployeeController {
 		
 	}
 	
+	
+	
 	@GetMapping("/api/Employee/getAll")
 	public ResponseEntity<?> getAllEmployee(){
 		
@@ -143,6 +146,31 @@ public class EmployeeController {
 	public ResponseEntity<?> getEmployeeByuserID(@PathVariable ("userinfoId") int userinfoId){
 		
 		Employee employee = employeeService.getEmployeeByUserID(userinfoId);
+		
+		return ResponseEntity.ok().body(employee);
+		
+	}
+	
+	@PutMapping("/api/Employee/update/{id}")
+	public ResponseEntity<?> updateEmployee(@RequestBody Employee employee, @PathVariable("id") int id){
+		
+		employee = employeeService.updateEmployee(employee,id);
+		
+		return ResponseEntity.ok(employee);
+		
+	}
+	
+	@GetMapping("/api/Employee/getEmployee/{id}")
+	public ResponseEntity<?> getEmployeebyId(@PathVariable("id") int id){
+		
+		Employee employee = null;
+		
+		try {
+			employee = employeeService.findEmployeeById(id);
+		} catch (ResourceNotFound e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return ResponseEntity.ok().body(employee);
 		
