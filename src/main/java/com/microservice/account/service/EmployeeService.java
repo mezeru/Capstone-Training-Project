@@ -102,10 +102,16 @@ public class EmployeeService {
 		
 		emp.setJobtype(employee.getJobtype());
 		emp.setName(employee.getName());
-		emp.setPoints(employee.getPoints());
+		emp.setSalary(employee.getSalary());
+		
 		
 		return employeeRepository.save(emp);
 		
+	}
+
+	public void deleteEmployee(int id) {
+		
+		employeeRepository.deleteById(id);
 	}
 	
 	
